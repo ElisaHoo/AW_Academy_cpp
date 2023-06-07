@@ -37,9 +37,7 @@ std::string get_password() {
 
 // At least 8 characters long
 bool is_long_enough(std::string password) {
-    if (password.length() >= 8)
-        return true;
-    return false;
+    return (password.length() >= 8);
 }
 
 
