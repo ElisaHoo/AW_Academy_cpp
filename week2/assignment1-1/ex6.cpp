@@ -6,8 +6,7 @@
  * number in the list.*/
 
 void output_the_largest_and_smallest(std::vector<int> v) {
-    std::vector<int>::iterator min = std::min_element(v.begin(), v.end());
-    std::vector<int>::iterator max = std::max_element(v.begin(), v.end());
+    const auto [min, max] = std::minmax_element(begin(v), end(v));
     std::cout << "Min element has value " << *min
               << " and max element value " << *max 
               << "\n";

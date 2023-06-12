@@ -13,6 +13,7 @@ void sum_of_elements(std::vector<int> vect) {
 
 int main() {
     std::vector<int> random_number_vector;
+    srand(time(NULL));  // The number sequence changes every run
     for (int i = 0; i < 10; i++) {
         // Generate random numbers between 1-100
         random_number_vector.push_back(rand() % 100 + 1);
