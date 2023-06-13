@@ -25,13 +25,26 @@
  * able to view the menu and their current order at any time.*/
 
 int main() {
-    struct Food porridge{.name = "porridge", .prize = 1.95, .ingredients = {"water", "oatmeal", "salt"}};
-    struct Food hamburger{.name = "hamburger", .prize = 5.90, .ingredients = {"bread", "cheese", "ground beef patty", "mayonnaise", "salad"}};
-    struct Food beer{.name =  "beer", .prize = 6.50, .ingredients = {"barley malt", "yeast", "water"}};
-
-    print_ingredients(porridge);
+    struct Food porridge{.name = "porridge", .price = 1.95, .ingredients = {"water", "oatmeal", "salt"}};
     
-    std::vector<Food> menu = {porridge, hamburger, beer};
+    print_ingredients(porridge);
+
+    std::vector<Food> menu{porridge};
+
+    std::cout << "Add new food to menu\n";
+    // Ask to add another food until user says no
+    while (true) {
+        add_food_to_menu(menu, input_new_food());
+        std::cout << "Do you want to add another food? (y/n) ";
+        char c{};
+        std::cin >> c;
+        if (c == 'y') {
+            continue;
+        } else {
+            break;
+        }
+    }
+    
     print_menu(menu);
     
     Order order;
@@ -40,7 +53,7 @@ int main() {
         get_customer_order(menu, order);
         ask_for_orders = ask_if_makes_more_orders();
     }
-    std::cout << "Thank you for your order! The total prize is " << order.total_prize << " euros\n";
+    std::cout << "The total prize for the order is " << order.total_price << " euros\n";
     
     return 0;
 }
