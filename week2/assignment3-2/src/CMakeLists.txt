@@ -1,0 +1,1 @@
+add_library(sensor STATIC sensor.cpp)
