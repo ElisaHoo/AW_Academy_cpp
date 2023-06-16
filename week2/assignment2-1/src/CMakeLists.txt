@@ -1,0 +1,1 @@
+add_library(food STATIC food.cpp)
