@@ -40,21 +40,56 @@ int main() {
         std::cin >> c;
         if (c == 'y') {
             continue;
+        } else if (c == 'n') {
+            break;
         } else {
+            std::cout << "Invalid input!\n";
             break;
         }
     }
     
-    print_menu(menu);
-    
     Order order;
-    bool ask_for_orders = true;
-    while(ask_for_orders) {
-        get_customer_order(menu, order);
-        ask_for_orders = ask_if_makes_more_orders();
-    }
-    std::cout << "The total prize for the order is " << order.total_price << " euros\n";
     
+    // Goes to loop where customer can choose action: make an order, 
+    // check an order or view the menu
+    while(true) {
+        std::cout << "\nPlease choose an action:\n";
+        std::cout << "(1) Make an order\n";
+        std::cout << "(2) View the order\n";
+        std::cout << "(3) View the menu\n";
+        std::cout << "(4) Quit\n";
+        
+        int choice{};
+        std::cin >> choice;
+        switch (choice)
+        {
+        case 1:
+            {
+                get_customer_order(menu, order);
+            }
+            break;
+        case 2:
+            {
+                print_order(order);
+            }
+            break;
+        case 3:
+            {
+                print_menu(menu);
+            }
+            break;
+        case 4:
+            {
+                std::cout << "The total prize for the order is " << order.total_price << " euros\n";
+                std::cout << "Thank you for visiting and please come again!\n";
+                return 0;
+            }
+            break;
+        default:
+            std::cout << "Invalid action, please choose from the numbers 1-4!";
+            break;
+        }
+    }
+
     return 0;
 }
-

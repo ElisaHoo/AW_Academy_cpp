@@ -23,6 +23,6 @@ Food input_new_food();
 void add_food_to_menu(std::vector<Food>& menu, Food food);
 void print_menu(std::vector<Food> menu);
 void get_customer_order(std::vector<Food> menu, Order& order);
-bool ask_if_makes_more_orders();
+void print_order(Order& order);
 
 #endif

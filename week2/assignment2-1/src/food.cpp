@@ -26,8 +26,11 @@ Food input_new_food() {
         std::cin >> c;
         if (c == 'y') {
             continue;
-        } else {
+        } else if (c == 'n') {
             return new_food;
+        } else {
+            std::cout << "Invalid input!\n";
+            break;
         }
     }
 }
@@ -37,14 +40,15 @@ void add_food_to_menu(std::vector<Food>& menu, Food food) {
 }
 
 void print_menu(std::vector<Food> menu) {
-    std::cout << "** Restaurant menu **\n";
+    std::cout << "\n** Restaurant menu **\n";
     for (int i = 0; i < menu.size(); ++i) {
         std::cout << "- " << menu[i].name <<"\n";
     }
+    std::cout << "\n";
 }
 
 void get_customer_order(std::vector<Food> menu, Order& order) {
-    std::cout << "What would you like to order?\n";
+    std::cout << "\nWhat would you like to order?\n";
     std::string choice{};
     std::getline(std::cin >> std::ws, choice);
     // Convert user input to lowercase to accept input regardless of case
@@ -56,17 +60,25 @@ void get_customer_order(std::vector<Food> menu, Order& order) {
         if (choice == menu[i].name){
             order.customer_order.push_back({menu[i]});
             order.total_price += menu[i].price;
+            std::cout << "\nThank you!\n\n";
             return;
         }
     }
-    // Prompt user if the order was not found from the menu
+    // Prompt user if the food was not found from the menu
     std::cout << "\nSorry, but it is not on our menu\n";
 }
 
-bool ask_if_makes_more_orders() {
-    std::cout << "Would you like something else (y/n)? ";
-    char c{};
-    std::cin >> c;
-    return (c == 'y');
+void print_order(Order& order) {
+    // If customer order includes something, loop through it and print the value
+    if (order.customer_order.size() > 0) {
+        std::cout << "\nYour order includes:\n";
+        for (int i = 0; i < order.customer_order.size(); ++i) {
+            std::cout << "- " << order.customer_order[i].name <<"\n";
+        }
+        std::cout << "The total prize for the order is " << order.total_price << " euros\n";
+        std::cout << "\n";
+        return;
+    }
+    std::cout << "\nYou have order nothing yet\n";
 }
     
