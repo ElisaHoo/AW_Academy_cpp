@@ -1,0 +1,1 @@
+add_library(file_handling STATIC file_handling.cpp)
