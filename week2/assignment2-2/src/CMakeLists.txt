@@ -1,0 +1,1 @@
+add_library(calculations STATIC calculations.cpp)
