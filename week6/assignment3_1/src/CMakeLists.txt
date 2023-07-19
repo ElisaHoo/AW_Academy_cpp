@@ -1,0 +1,1 @@
+add_library(classes STATIC classes.cpp)
