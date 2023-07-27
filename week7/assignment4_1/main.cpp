@@ -47,11 +47,11 @@ int main() {
     sound(parrot);
     sound(lion);
 
-    // EXERCISE 5
-    std::vector<Animal> animals{parrot, lion};
-    for (auto& animal : animals) {
-        animal.make_sound();
-    }
+    // EXERCISE 5 -> Doesn't work, need pointers which we cover next week
+    //std::vector<Animal> animals{parrot, lion};
+    //for (auto& animal : animals) {
+        //animal.make_sound();
+    //}
 
     return 0;
 }
