@@ -1,0 +1,1 @@
+add_library(transactions STATIC transactions.cpp)
