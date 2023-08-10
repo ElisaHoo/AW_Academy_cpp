@@ -14,7 +14,7 @@ class Lion {
             std::cout << name << " says: \"ROAR!\"\n";
         }
         bool has_teeth() const {return true;}
-        virtual ~Lion() = default;
+        ~Lion() = default;
 
     private:
         std::string name{};
