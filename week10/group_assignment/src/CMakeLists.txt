@@ -1,0 +1,1 @@
+add_library(position_comparison STATIC position_comparison.cpp)
