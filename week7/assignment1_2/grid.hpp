@@ -79,7 +79,7 @@ const T& Grid_2D<T>::operator()(int row, int col) const {
     assert(row >= 0 && row < width);
     assert(col >= 0 && row < height);
      
-    return grid[row * height + col];
+    return grid[row * width + col];
 }
 
 
